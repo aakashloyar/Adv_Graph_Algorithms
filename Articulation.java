@@ -28,6 +28,7 @@ public class Articulation {
 
 }
 //Articulation point
+//taking all except prev and unvisited
 class AP {
     int n;
     int timer;
@@ -63,7 +64,7 @@ class AP {
         int child=0;
         ArrayList<Integer> internal=list.get(curr);
         for(int i=0;i<internal.size();i++) {
-            int next=internal.get(i);
+            int next= internal.get(i);
             if(next==prev) continue;
             if(!v[next]) {
                 dfs(next,curr);

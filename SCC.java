@@ -12,6 +12,21 @@ public class SCC {
 //step2-> reverse list
 //step3-> do dfs and store
 
+
+
+//the main idea
+//as first step we init our parametrs where list and rev are adj list
+//suppose scc1-> scc2.....->sccn
+//so it is guranteed that if you do dfs then in top of stack
+//you will get at least 1node guranted of scc1 and then at least 1 node of scc2
+//now after scc2 scc1 nodes can be there but scc3 1st node will come after scc2
+//so that is how it is giving
+//now we just reverse our edges
+//so now scc1<-scc2<-.......sccn
+//now we pop from stack so first we will visit scc1 first
+// now we cannot go to other scc from scc1
+//after that we visit scc2 now we can go to scc1 but that is already visited
+//that is how we will visit all our scc
 class KR {
     ArrayList<ArrayList<Integer>> list;
     ArrayList<ArrayList<Integer>> rev;
@@ -37,6 +52,7 @@ class KR {
                 rev.get(next).add(i);
             }
         }
+        solve();
     }
     void solve() {
         Stack<Integer> s=new Stack<>();
